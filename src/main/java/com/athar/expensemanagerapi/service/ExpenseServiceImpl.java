@@ -2,7 +2,7 @@ package com.athar.expensemanagerapi.service;
 
 
 
-import java.sql.Date;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +22,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Autowired
     private ExpenseRepository expenseRepo;
 
-//    @Autowired
-//    private UserService userService;
+
 
     @Override
     public Page<Expense> getAllExpenses(Pageable page) {
@@ -33,11 +32,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Expense getExpenseById(Long id){
-//        Optional<Expense> expense = expenseRepo.findByUserIdAndId(userService.getLoggedInUser().getId(), id);
-//        if (expense.isPresent()) {
-//            return expense.get();
-//        }
-//        throw new ResourceNotFoundException("Expense is not found for the id "+id);
+
         Optional<Expense> expense = expenseRepo.findById(id);
         if (expense.isPresent()) {
             return expense.get();
@@ -57,7 +52,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     @Override
     public Expense saveExpenseDetails(Expense expense) {
-//        expense.setUser(userService.getLoggedInUser());
+
 
         return expenseRepo.save(expense);
     }
